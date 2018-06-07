@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		205E7127376A53DB985B293A /* libPods-IMDBClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 517AC0B4FD999A92360F6AAB /* libPods-IMDBClient.a */; };
+		7B33364958179754F86745F2 /* libPods-IMDBClientUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C04FD6B738D9470385C06DB1 /* libPods-IMDBClientUITests.a */; };
+		9232B64D7CDCBE4B00FED303 /* libPods-IMDBClientTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED28F6008E2FCD7DA940790D /* libPods-IMDBClientTests.a */; };
 		B5083E8A20C95F4900A30053 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083E8920C95F4900A30053 /* AppDelegate.m */; };
 		B5083E8D20C95F4900A30053 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083E8C20C95F4900A30053 /* ViewController.m */; };
 		B5083E9020C95F4900A30053 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5083E8E20C95F4900A30053 /* Main.storyboard */; };
@@ -35,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00A7B4CB69F2155AAC4F2E7F /* Pods-IMDBClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBClientUITests/Pods-IMDBClientUITests.release.xcconfig"; sourceTree = "<group>"; };
+		23A4E8E239B8B0EE6BF53B63 /* Pods-IMDBClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBClientUITests/Pods-IMDBClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		499FF951954709DFFAB1CAF5 /* Pods-IMDBClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBClientTests/Pods-IMDBClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		517AC0B4FD999A92360F6AAB /* libPods-IMDBClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDBClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6907F423EB72F0D44879F90A /* Pods-IMDBClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBClient/Pods-IMDBClient.release.xcconfig"; sourceTree = "<group>"; };
 		B5083E8520C95F4900A30053 /* IMDBClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMDBClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5083E8820C95F4900A30053 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B5083E8920C95F4900A30053 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,6 +59,10 @@
 		B5083EA820C95F5700A30053 /* IMDBClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMDBClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5083EAC20C95F5700A30053 /* IMDBClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMDBClientUITests.m; sourceTree = "<group>"; };
 		B5083EAE20C95F5700A30053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB11C83EDF1427A7AA254F55 /* Pods-IMDBClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBClient/Pods-IMDBClient.debug.xcconfig"; sourceTree = "<group>"; };
+		C04FD6B738D9470385C06DB1 /* libPods-IMDBClientUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDBClientUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED28F6008E2FCD7DA940790D /* libPods-IMDBClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDBClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBFB9D36E8A7CFAC50F7CC15 /* Pods-IMDBClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBClientTests/Pods-IMDBClientTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205E7127376A53DB985B293A /* libPods-IMDBClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9232B64D7CDCBE4B00FED303 /* libPods-IMDBClientTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B33364958179754F86745F2 /* libPods-IMDBClientUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3769B5D75140C1A2F835FDAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BB11C83EDF1427A7AA254F55 /* Pods-IMDBClient.debug.xcconfig */,
+				6907F423EB72F0D44879F90A /* Pods-IMDBClient.release.xcconfig */,
+				499FF951954709DFFAB1CAF5 /* Pods-IMDBClientTests.debug.xcconfig */,
+				FBFB9D36E8A7CFAC50F7CC15 /* Pods-IMDBClientTests.release.xcconfig */,
+				23A4E8E239B8B0EE6BF53B63 /* Pods-IMDBClientUITests.debug.xcconfig */,
+				00A7B4CB69F2155AAC4F2E7F /* Pods-IMDBClientUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		B5083E7C20C95F4800A30053 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +113,8 @@
 				B5083EA020C95F5700A30053 /* IMDBClientTests */,
 				B5083EAB20C95F5700A30053 /* IMDBClientUITests */,
 				B5083E8620C95F4900A30053 /* Products */,
+				3769B5D75140C1A2F835FDAA /* Pods */,
+				BA26938B77CFD76A57B467A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +162,16 @@
 			path = IMDBClientUITests;
 			sourceTree = "<group>";
 		};
+		BA26938B77CFD76A57B467A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				517AC0B4FD999A92360F6AAB /* libPods-IMDBClient.a */,
+				ED28F6008E2FCD7DA940790D /* libPods-IMDBClientTests.a */,
+				C04FD6B738D9470385C06DB1 /* libPods-IMDBClientUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,6 +179,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5083EB120C95F5700A30053 /* Build configuration list for PBXNativeTarget "IMDBClient" */;
 			buildPhases = (
+				B453347209A09F9215966B3F /* [CP] Check Pods Manifest.lock */,
 				B5083E8120C95F4900A30053 /* Sources */,
 				B5083E8220C95F4900A30053 /* Frameworks */,
 				B5083E8320C95F4900A30053 /* Resources */,
@@ -156,6 +197,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5083EB420C95F5700A30053 /* Build configuration list for PBXNativeTarget "IMDBClientTests" */;
 			buildPhases = (
+				B37167F24A86EAD462160A1E /* [CP] Check Pods Manifest.lock */,
 				B5083E9920C95F5700A30053 /* Sources */,
 				B5083E9A20C95F5700A30053 /* Frameworks */,
 				B5083E9B20C95F5700A30053 /* Resources */,
@@ -174,6 +216,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5083EB720C95F5700A30053 /* Build configuration list for PBXNativeTarget "IMDBClientUITests" */;
 			buildPhases = (
+				ACB72679C6BFD88EBF727A59 /* [CP] Check Pods Manifest.lock */,
 				B5083EA420C95F5700A30053 /* Sources */,
 				B5083EA520C95F5700A30053 /* Frameworks */,
 				B5083EA620C95F5700A30053 /* Resources */,
@@ -256,6 +299,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ACB72679C6BFD88EBF727A59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IMDBClientUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B37167F24A86EAD462160A1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IMDBClientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B453347209A09F9215966B3F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IMDBClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B5083E8120C95F4900A30053 /* Sources */ = {
@@ -431,6 +531,7 @@
 		};
 		B5083EB220C95F5700A30053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB11C83EDF1427A7AA254F55 /* Pods-IMDBClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,6 +548,7 @@
 		};
 		B5083EB320C95F5700A30053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6907F423EB72F0D44879F90A /* Pods-IMDBClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -463,6 +565,7 @@
 		};
 		B5083EB520C95F5700A30053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 499FF951954709DFFAB1CAF5 /* Pods-IMDBClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -481,6 +584,7 @@
 		};
 		B5083EB620C95F5700A30053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBFB9D36E8A7CFAC50F7CC15 /* Pods-IMDBClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -499,6 +603,7 @@
 		};
 		B5083EB820C95F5700A30053 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23A4E8E239B8B0EE6BF53B63 /* Pods-IMDBClientUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IMDBClientUITests/Info.plist;
@@ -516,6 +621,7 @@
 		};
 		B5083EB920C95F5700A30053 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00A7B4CB69F2155AAC4F2E7F /* Pods-IMDBClientUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = IMDBClientUITests/Info.plist;
