@@ -18,6 +18,7 @@
 		B5083E9820C95F5700A30053 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083E9720C95F5700A30053 /* main.m */; };
 		B5083EA220C95F5700A30053 /* IMDBClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083EA120C95F5700A30053 /* IMDBClientTests.m */; };
 		B5083EAD20C95F5700A30053 /* IMDBClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083EAC20C95F5700A30053 /* IMDBClientUITests.m */; };
+		B5C8679320CAAE89006E1905 /* filmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8679220CAAE89006E1905 /* filmModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		B5083EA820C95F5700A30053 /* IMDBClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMDBClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5083EAC20C95F5700A30053 /* IMDBClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMDBClientUITests.m; sourceTree = "<group>"; };
 		B5083EAE20C95F5700A30053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C8679120CAAE89006E1905 /* filmModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filmModel.h; sourceTree = "<group>"; };
+		B5C8679220CAAE89006E1905 /* filmModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = filmModel.m; sourceTree = "<group>"; };
 		BB11C83EDF1427A7AA254F55 /* Pods-IMDBClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IMDBClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IMDBClient/Pods-IMDBClient.debug.xcconfig"; sourceTree = "<group>"; };
 		C04FD6B738D9470385C06DB1 /* libPods-IMDBClientUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDBClientUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED28F6008E2FCD7DA940790D /* libPods-IMDBClientTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IMDBClientTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,6 +138,8 @@
 				B5083E8920C95F4900A30053 /* AppDelegate.m */,
 				B5083E8B20C95F4900A30053 /* ViewController.h */,
 				B5083E8C20C95F4900A30053 /* ViewController.m */,
+				B5C8679120CAAE89006E1905 /* filmModel.h */,
+				B5C8679220CAAE89006E1905 /* filmModel.m */,
 				B5083E8E20C95F4900A30053 /* Main.storyboard */,
 				B5083E9120C95F5700A30053 /* Assets.xcassets */,
 				B5083E9320C95F5700A30053 /* LaunchScreen.storyboard */,
@@ -365,6 +370,7 @@
 				B5083E8D20C95F4900A30053 /* ViewController.m in Sources */,
 				B5083E9820C95F5700A30053 /* main.m in Sources */,
 				B5083E8A20C95F4900A30053 /* AppDelegate.m in Sources */,
+				B5C8679320CAAE89006E1905 /* filmModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
