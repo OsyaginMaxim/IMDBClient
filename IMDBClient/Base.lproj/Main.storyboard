@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="84" width="375" height="583"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="174" id="pcD-KV-1Gl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="174" id="pcD-KV-1Gl" customClass="FilmCellTableViewCell">
                                         <rect key="frame" x="0.0" y="28" width="375" height="174"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pcD-KV-1Gl" id="YNb-Ys-lLX">
@@ -105,6 +105,13 @@
                                                 <constraint firstItem="Uqq-zw-TjL" firstAttribute="top" secondItem="zFn-dd-PSq" secondAttribute="bottom" id="xMA-fP-Myo"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageCell" destination="zFn-dd-PSq" id="yQs-7k-6TI"/>
+                                            <outlet property="imdbIDLabel" destination="Uqq-zw-TjL" id="ghW-3e-chO"/>
+                                            <outlet property="nameLabel" destination="fZu-lE-eef" id="ZqH-4z-cXe"/>
+                                            <outlet property="typeLabel" destination="nna-h2-wp3" id="Pc2-gR-Ncp"/>
+                                            <outlet property="yearLabel" destination="or1-cZ-yVy" id="kpl-rO-RJz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
