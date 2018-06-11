@@ -11,6 +11,7 @@
 #import "FilmCellTableViewCell.h"
 #import "AFNetworking/AFNetworking.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "DetailsViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -28,6 +29,9 @@
     [super viewDidLoad];
     self.arrayModels = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
+    UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCloseKeyboard)];
+    [self.view addGestureRecognizer:handleTap];
+    handleTap.cancelsTouchesInView = false;
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
@@ -38,6 +42,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) handleCloseKeyboard {
+   // [self.view endEditing:YES];
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - UITableView DataSource Methods
@@ -88,6 +97,15 @@
                 NSLog(@"Error: %@", error);
             }
      ];
+}
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
+    [self.navigationController pushViewController:detailsView animated:YES];
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    NSLog(@"Tab on Done");
+    [self.searchBar resignFirstResponder];
 }
 
 @end
