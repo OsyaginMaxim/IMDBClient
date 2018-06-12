@@ -100,12 +100,24 @@
 }
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
-    [self.navigationController pushViewController:detailsView animated:YES];
+    //DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
+    //[self.navigationController pushViewController:detailsView animated:YES];
+    [self performSegueWithIdentifier:@"takeId" sender:indexPath];
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     NSLog(@"Tab on Done");
     [self.searchBar resignFirstResponder];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"takeId"]) {
+        NSIndexPath *indexPath = sender; //[self.tableView indexPathsForSelectedRows];
+        DetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.imdbId = [self.arrayModels[indexPath.row] valueForKey:@"imdbID"];
+        NSLog(@"segue indexPath %ld",(long)indexPath);
+    }else{
+        NSLog(@"segue not found identifier");
+    }
 }
 
 @end

@@ -68,7 +68,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqq-zw-TjL">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMDB" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uqq-zw-TjL">
                                                     <rect key="frame" x="0.0" y="137" width="375" height="37"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -140,7 +140,7 @@
                     <connections>
                         <outlet property="searchBar" destination="ljO-HJ-45C" id="l6X-AJ-OoC"/>
                         <outlet property="tableView" destination="VYQ-ux-YQH" id="z0F-cu-gSg"/>
-                        <segue destination="XGB-nR-3Bg" kind="push" id="Mda-Il-66g"/>
+                        <segue destination="XGB-nR-3Bg" kind="push" identifier="takeId" id="Mda-Il-66g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -155,15 +155,145 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cur-Fg-VzR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="402"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cur-Fg-VzR">
+                                <rect key="frame" x="0.0" y="64" width="150" height="184"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="L8n-xy-qyU"/>
+                                    <constraint firstAttribute="height" constant="184" id="vbO-Ps-bMh"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Storyboards Segue Tutorial: Pass Data Between View Controllers" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR8-MW-xH9">
+                                <rect key="frame" x="150" y="64" width="225" height="96"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="BGO-Qh-d2K"/>
+                                    <constraint firstAttribute="height" constant="96" id="dtl-Wv-seh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Rating" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-ZE-Sod">
+                                <rect key="frame" x="150" y="204" width="225" height="44"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VaP-K2-76q"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Director" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z0s-e4-3lD">
+                                <rect key="frame" x="0.0" y="248" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Af3-AU-XBG"/>
+                                    <constraint firstAttribute="width" constant="375" id="Zmx-uf-O19"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Actors" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qPR-vz-KtQ">
+                                <rect key="frame" x="0.0" y="292" width="375" height="88"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="DAo-7d-Se8"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Genre" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3nd-2I-zGh">
+                                <rect key="frame" x="150" y="160" width="225" height="44"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="S6f-Dj-oIi"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Runtime" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L4Q-WO-Cus">
+                                <rect key="frame" x="0.0" y="380" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="nLD-TF-so7"/>
+                                </constraints>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Released" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QM9-ju-JDa">
+                                <rect key="frame" x="0.0" y="424" width="375" height="44"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nP2-8s-0nd">
+                                <rect key="frame" x="0.0" y="468" width="375" height="199"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="199" id="KzA-qT-kPj"/>
+                                </constraints>
+                                <string key="text">This is the second article of our Storyboards series. In the first tutorial, we introduced the Storyboards, which is a friendly feature in Xcode for designing user interface. If you’ve followed the tutorial from start to end, you should already build a simple recipe app with navigation interface. But we left one thing that was not discussed: data passing between scenes (i.e. view controllers) with segue.</string>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QM9-ju-JDa" firstAttribute="width" secondItem="L4Q-WO-Cus" secondAttribute="width" id="1qX-xe-Oeg"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="L4Q-WO-Cus" secondAttribute="trailing" id="2FF-OF-6fV"/>
+                            <constraint firstItem="L4Q-WO-Cus" firstAttribute="width" secondItem="qPR-vz-KtQ" secondAttribute="width" id="5YO-GN-cn2"/>
+                            <constraint firstItem="nP2-8s-0nd" firstAttribute="width" secondItem="QM9-ju-JDa" secondAttribute="width" id="6eN-Yy-0oo"/>
+                            <constraint firstItem="z0s-e4-3lD" firstAttribute="top" secondItem="cur-Fg-VzR" secondAttribute="bottom" id="8bG-O1-EXO"/>
+                            <constraint firstItem="qPR-vz-KtQ" firstAttribute="top" secondItem="z0s-e4-3lD" secondAttribute="bottom" id="8t5-Cc-db5"/>
+                            <constraint firstItem="L4Q-WO-Cus" firstAttribute="top" secondItem="qPR-vz-KtQ" secondAttribute="bottom" id="CSm-Un-2xV"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="VR8-MW-xH9" secondAttribute="trailing" id="FsD-y7-GT8"/>
+                            <constraint firstItem="qPR-vz-KtQ" firstAttribute="width" secondItem="z0s-e4-3lD" secondAttribute="width" id="HJ7-GI-7ia"/>
+                            <constraint firstItem="QM9-ju-JDa" firstAttribute="top" secondItem="L4Q-WO-Cus" secondAttribute="bottom" id="IAm-k5-7tS"/>
+                            <constraint firstItem="3nd-2I-zGh" firstAttribute="leading" secondItem="cur-Fg-VzR" secondAttribute="trailing" id="KrF-Lt-tQz"/>
+                            <constraint firstItem="z0s-e4-3lD" firstAttribute="top" secondItem="fIw-ZE-Sod" secondAttribute="bottom" id="Lea-lS-s7c"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="z0s-e4-3lD" secondAttribute="trailing" id="OLA-v9-vpb"/>
+                            <constraint firstItem="3nd-2I-zGh" firstAttribute="top" secondItem="VR8-MW-xH9" secondAttribute="bottom" id="OdM-fp-to4"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="qPR-vz-KtQ" secondAttribute="trailing" id="PfF-QV-Uao"/>
+                            <constraint firstItem="QM9-ju-JDa" firstAttribute="leading" secondItem="a9U-dl-5is" secondAttribute="leading" id="QRi-va-yEw"/>
+                            <constraint firstItem="fIw-ZE-Sod" firstAttribute="width" secondItem="3nd-2I-zGh" secondAttribute="width" id="RGa-BN-uJM"/>
+                            <constraint firstItem="3nd-2I-zGh" firstAttribute="width" secondItem="VR8-MW-xH9" secondAttribute="width" id="ShE-wj-5zq"/>
+                            <constraint firstItem="qPR-vz-KtQ" firstAttribute="leading" secondItem="a9U-dl-5is" secondAttribute="leading" id="UIQ-cD-Na2"/>
+                            <constraint firstItem="cur-Fg-VzR" firstAttribute="leading" secondItem="a9U-dl-5is" secondAttribute="leading" id="UIp-SH-wSV"/>
+                            <constraint firstItem="L4Q-WO-Cus" firstAttribute="leading" secondItem="a9U-dl-5is" secondAttribute="leading" id="Vg6-yh-kEa"/>
+                            <constraint firstItem="fIw-ZE-Sod" firstAttribute="top" secondItem="3nd-2I-zGh" secondAttribute="bottom" id="VkD-IB-aoS"/>
+                            <constraint firstItem="z0s-e4-3lD" firstAttribute="leading" secondItem="a9U-dl-5is" secondAttribute="leading" id="Ynw-EO-YgQ"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="QM9-ju-JDa" secondAttribute="trailing" id="atD-3t-KcZ"/>
+                            <constraint firstItem="fIw-ZE-Sod" firstAttribute="height" secondItem="3nd-2I-zGh" secondAttribute="height" id="b4E-4W-X0g"/>
+                            <constraint firstItem="VR8-MW-xH9" firstAttribute="top" secondItem="a9U-dl-5is" secondAttribute="top" id="bkl-EO-4wW"/>
+                            <constraint firstItem="nP2-8s-0nd" firstAttribute="leading" secondItem="a9U-dl-5is" secondAttribute="leading" id="e0h-wS-6UW"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="nP2-8s-0nd" secondAttribute="trailing" id="hhT-Uq-bOR"/>
+                            <constraint firstItem="VR8-MW-xH9" firstAttribute="leading" secondItem="cur-Fg-VzR" secondAttribute="trailing" id="ifz-lx-I46"/>
+                            <constraint firstItem="cur-Fg-VzR" firstAttribute="top" secondItem="a9U-dl-5is" secondAttribute="top" id="oAk-yY-EcU"/>
+                            <constraint firstItem="nP2-8s-0nd" firstAttribute="top" secondItem="QM9-ju-JDa" secondAttribute="bottom" id="oqT-8q-IEM"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="fIw-ZE-Sod" secondAttribute="trailing" id="pyW-tA-TfK"/>
+                            <constraint firstItem="QM9-ju-JDa" firstAttribute="height" secondItem="L4Q-WO-Cus" secondAttribute="height" id="qNW-bO-efX"/>
+                            <constraint firstItem="a9U-dl-5is" firstAttribute="bottom" secondItem="nP2-8s-0nd" secondAttribute="bottom" id="y5g-bG-iZ2"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="a9U-dl-5is"/>
                     </view>
                     <navigationItem key="navigationItem" id="iPZ-zj-rzg" colorLabel="IBBuiltInLabel-Gray"/>
+                    <connections>
+                        <outlet property="actors" destination="qPR-vz-KtQ" id="zKG-YK-Y6k"/>
+                        <outlet property="director" destination="z0s-e4-3lD" id="nAE-Bz-0bq"/>
+                        <outlet property="discript" destination="nP2-8s-0nd" id="e3k-QB-5Wc"/>
+                        <outlet property="genre" destination="3nd-2I-zGh" id="GbG-2f-jZF"/>
+                        <outlet property="name" destination="VR8-MW-xH9" id="RIr-2u-0hZ"/>
+                        <outlet property="poster" destination="cur-Fg-VzR" id="zEW-p4-aC9"/>
+                        <outlet property="rating" destination="fIw-ZE-Sod" id="7vd-Jg-9tU"/>
+                        <outlet property="released" destination="QM9-ju-JDa" id="JQ2-RG-uol"/>
+                        <outlet property="runtime" destination="L4Q-WO-Cus" id="ZqW-3Q-iVE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jB-8p-5JK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
