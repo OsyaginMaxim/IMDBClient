@@ -33,6 +33,8 @@
     [self.view addGestureRecognizer:handleTap];
     handleTap.cancelsTouchesInView = false;
     // Do any additional setup after loading the view, typically from a nib.
+
+    self.tableView.tableFooterView = [UIView new];
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     NSLog(@"%@",searchText);
