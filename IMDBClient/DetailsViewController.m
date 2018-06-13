@@ -10,7 +10,6 @@
 #import "DetailsViewController.h"
 
 @interface DetailsViewController ()
-
 @end
 
 @implementation DetailsViewController
@@ -43,6 +42,7 @@
                 self.discript.text = [responseObject valueForKey:@"Plot"];
                 [self.poster sd_setImageWithURL:[NSURL URLWithString:[responseObject valueForKey:@"Poster"]]
                  placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+                self.navigationItem.title = [responseObject valueForKey:@"Title"];
             }
             failure:^(NSURLSessionTask *operation, NSError *error) {
                 NSLog(@"Error: %@", error);

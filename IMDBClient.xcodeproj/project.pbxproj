@@ -18,6 +18,11 @@
 		B5083E9820C95F5700A30053 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083E9720C95F5700A30053 /* main.m */; };
 		B5083EA220C95F5700A30053 /* IMDBClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083EA120C95F5700A30053 /* IMDBClientTests.m */; };
 		B5083EAD20C95F5700A30053 /* IMDBClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5083EAC20C95F5700A30053 /* IMDBClientUITests.m */; };
+		B517868420D1511A00B92940 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B517868320D1511A00B92940 /* CoreData.framework */; };
+		B517868720D1515D00B92940 /* saveFilmModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B517868520D1515D00B92940 /* saveFilmModel.xcdatamodeld */; };
+		B517868A20D1673300B92940 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B517868920D1673300B92940 /* TabBarViewController.m */; };
+		B517868D20D175E700B92940 /* FavouriteTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B517868C20D175E700B92940 /* FavouriteTableTableViewController.m */; };
+		B517869020D17C9C00B92940 /* TVFavouriteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B517868F20D17C9C00B92940 /* TVFavouriteCell.m */; };
 		B57EB92A20CEB6D40009563B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B57EB92920CEB6D40009563B /* DetailsViewController.m */; };
 		B5C8679320CAAE89006E1905 /* filmModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8679220CAAE89006E1905 /* filmModel.m */; };
 		B5C8679620CACF04006E1905 /* FilmCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B5C8679520CACF04006E1905 /* FilmCellTableViewCell.m */; };
@@ -62,6 +67,14 @@
 		B5083EA820C95F5700A30053 /* IMDBClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMDBClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5083EAC20C95F5700A30053 /* IMDBClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IMDBClientUITests.m; sourceTree = "<group>"; };
 		B5083EAE20C95F5700A30053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B517868320D1511A00B92940 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B517868620D1515D00B92940 /* saveFilmModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = saveFilmModel.xcdatamodel; sourceTree = "<group>"; };
+		B517868820D1673300B92940 /* TabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarViewController.h; sourceTree = "<group>"; };
+		B517868920D1673300B92940 /* TabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TabBarViewController.m; sourceTree = "<group>"; };
+		B517868B20D175E700B92940 /* FavouriteTableTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavouriteTableTableViewController.h; sourceTree = "<group>"; };
+		B517868C20D175E700B92940 /* FavouriteTableTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavouriteTableTableViewController.m; sourceTree = "<group>"; };
+		B517868E20D17C9C00B92940 /* TVFavouriteCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVFavouriteCell.h; sourceTree = "<group>"; };
+		B517868F20D17C9C00B92940 /* TVFavouriteCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVFavouriteCell.m; sourceTree = "<group>"; };
 		B57EB92820CEB6D40009563B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		B57EB92920CEB6D40009563B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		B5C8679120CAAE89006E1905 /* filmModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filmModel.h; sourceTree = "<group>"; };
@@ -79,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B517868420D1511A00B92940 /* CoreData.framework in Frameworks */,
 				205E7127376A53DB985B293A /* libPods-IMDBClient.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,10 +156,16 @@
 			children = (
 				B5083E8820C95F4900A30053 /* AppDelegate.h */,
 				B5083E8920C95F4900A30053 /* AppDelegate.m */,
-				B57EB92820CEB6D40009563B /* DetailsViewController.h */,
-				B57EB92920CEB6D40009563B /* DetailsViewController.m */,
+				B517868820D1673300B92940 /* TabBarViewController.h */,
+				B517868920D1673300B92940 /* TabBarViewController.m */,
 				B5083E8B20C95F4900A30053 /* ViewController.h */,
 				B5083E8C20C95F4900A30053 /* ViewController.m */,
+				B57EB92820CEB6D40009563B /* DetailsViewController.h */,
+				B57EB92920CEB6D40009563B /* DetailsViewController.m */,
+				B517868B20D175E700B92940 /* FavouriteTableTableViewController.h */,
+				B517868C20D175E700B92940 /* FavouriteTableTableViewController.m */,
+				B517868E20D17C9C00B92940 /* TVFavouriteCell.h */,
+				B517868F20D17C9C00B92940 /* TVFavouriteCell.m */,
 				B5C8679420CACF04006E1905 /* FilmCellTableViewCell.h */,
 				B5C8679520CACF04006E1905 /* FilmCellTableViewCell.m */,
 				B5C8679120CAAE89006E1905 /* filmModel.h */,
@@ -153,6 +173,7 @@
 				B5083E8E20C95F4900A30053 /* Main.storyboard */,
 				B5083E9120C95F5700A30053 /* Assets.xcassets */,
 				B5083E9320C95F5700A30053 /* LaunchScreen.storyboard */,
+				B517868520D1515D00B92940 /* saveFilmModel.xcdatamodeld */,
 				B5083E9620C95F5700A30053 /* Info.plist */,
 				B5083E9720C95F5700A30053 /* main.m */,
 			);
@@ -180,6 +201,7 @@
 		BA26938B77CFD76A57B467A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B517868320D1511A00B92940 /* CoreData.framework */,
 				517AC0B4FD999A92360F6AAB /* libPods-IMDBClient.a */,
 				ED28F6008E2FCD7DA940790D /* libPods-IMDBClientTests.a */,
 				C04FD6B738D9470385C06DB1 /* libPods-IMDBClientUITests.a */,
@@ -379,8 +401,12 @@
 			files = (
 				B5083E8D20C95F4900A30053 /* ViewController.m in Sources */,
 				B5083E9820C95F5700A30053 /* main.m in Sources */,
+				B517868720D1515D00B92940 /* saveFilmModel.xcdatamodeld in Sources */,
+				B517868D20D175E700B92940 /* FavouriteTableTableViewController.m in Sources */,
 				B5083E8A20C95F4900A30053 /* AppDelegate.m in Sources */,
+				B517868A20D1673300B92940 /* TabBarViewController.m in Sources */,
 				B57EB92A20CEB6D40009563B /* DetailsViewController.m in Sources */,
+				B517869020D17C9C00B92940 /* TVFavouriteCell.m in Sources */,
 				B5C8679320CAAE89006E1905 /* filmModel.m in Sources */,
 				B5C8679620CACF04006E1905 /* FilmCellTableViewCell.m in Sources */,
 			);
@@ -695,6 +721,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B517868520D1515D00B92940 /* saveFilmModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B517868620D1515D00B92940 /* saveFilmModel.xcdatamodel */,
+			);
+			currentVersion = B517868620D1515D00B92940 /* saveFilmModel.xcdatamodel */;
+			path = saveFilmModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B5083E7D20C95F4800A30053 /* Project object */;
 }
