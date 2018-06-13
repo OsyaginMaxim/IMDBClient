@@ -140,7 +140,7 @@
                     <connections>
                         <outlet property="searchBar" destination="ljO-HJ-45C" id="l6X-AJ-OoC"/>
                         <outlet property="tableView" destination="VYQ-ux-YQH" id="z0F-cu-gSg"/>
-                        <segue destination="XGB-nR-3Bg" kind="push" identifier="takeId" id="Mda-Il-66g"/>
+                        <segue destination="XGB-nR-3Bg" kind="show" identifier="takeId" id="Mda-Il-66g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
