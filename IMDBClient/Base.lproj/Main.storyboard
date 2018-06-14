@@ -151,19 +151,19 @@
         <scene sceneID="CBl-HF-WKI">
             <objects>
                 <viewController storyboardIdentifier="detailsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XGB-nR-3Bg" customClass="DetailsViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="LWp-wQ-M9R">
+                    <view key="view" contentMode="scaleToFill" id="LWp-wQ-M9R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cur-Fg-VzR">
-                                <rect key="frame" x="0.0" y="20" width="150" height="184"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cur-Fg-VzR">
+                                <rect key="frame" x="0.0" y="64" width="150" height="184"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="L8n-xy-qyU"/>
                                     <constraint firstAttribute="height" constant="184" id="vbO-Ps-bMh"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR8-MW-xH9">
-                                <rect key="frame" x="150" y="20" width="225" height="96"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR8-MW-xH9">
+                                <rect key="frame" x="150" y="64" width="225" height="96"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="BGO-Qh-d2K"/>
@@ -173,15 +173,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-ZE-Sod">
-                                <rect key="frame" x="150" y="160" width="225" height="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fIw-ZE-Sod">
+                                <rect key="frame" x="150" y="204" width="225" height="44"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z0s-e4-3lD">
-                                <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z0s-e4-3lD">
+                                <rect key="frame" x="0.0" y="248" width="375" height="44"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Af3-AU-XBG"/>
@@ -191,8 +191,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qPR-vz-KtQ">
-                                <rect key="frame" x="0.0" y="248" width="375" height="88"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qPR-vz-KtQ">
+                                <rect key="frame" x="0.0" y="292" width="375" height="88"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="DAo-7d-Se8"/>
@@ -201,8 +201,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3nd-2I-zGh">
-                                <rect key="frame" x="150" y="116" width="225" height="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3nd-2I-zGh">
+                                <rect key="frame" x="150" y="160" width="225" height="44"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="S6f-Dj-oIi"/>
@@ -211,8 +211,8 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L4Q-WO-Cus">
-                                <rect key="frame" x="0.0" y="336" width="375" height="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="L4Q-WO-Cus">
+                                <rect key="frame" x="0.0" y="380" width="375" height="44"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nLD-TF-so7"/>
@@ -221,23 +221,38 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QM9-ju-JDa">
-                                <rect key="frame" x="0.0" y="380" width="375" height="44"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QM9-ju-JDa">
+                                <rect key="frame" x="0.0" y="424" width="375" height="44"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nP2-8s-0nd">
-                                <rect key="frame" x="0.0" y="424" width="375" height="243"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nP2-8s-0nd">
+                                <rect key="frame" x="0.0" y="468" width="375" height="150"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="243" id="hdH-R5-bHd"/>
+                                    <constraint firstAttribute="height" constant="150" id="ezg-A2-ohU"/>
                                 </constraints>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJS-PY-QTY">
+                                <rect key="frame" x="0.0" y="223" width="150" height="25"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="264-Z5-RdE"/>
+                                    <constraint firstAttribute="height" constant="25" id="OPG-PW-30g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="in favourite">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="XGB-nR-3Bg" eventType="touchUpInside" id="7GJ-c1-PQl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -269,9 +284,12 @@
                             <constraint firstItem="fIw-ZE-Sod" firstAttribute="height" secondItem="3nd-2I-zGh" secondAttribute="height" id="b4E-4W-X0g"/>
                             <constraint firstItem="VR8-MW-xH9" firstAttribute="top" secondItem="a9U-dl-5is" secondAttribute="top" id="bkl-EO-4wW"/>
                             <constraint firstItem="nP2-8s-0nd" firstAttribute="leading" secondItem="a9U-dl-5is" secondAttribute="leading" id="e0h-wS-6UW"/>
+                            <constraint firstItem="IJS-PY-QTY" firstAttribute="trailing" secondItem="cur-Fg-VzR" secondAttribute="trailing" id="f4l-U8-t2Q"/>
                             <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="nP2-8s-0nd" secondAttribute="trailing" id="hhT-Uq-bOR"/>
                             <constraint firstItem="VR8-MW-xH9" firstAttribute="leading" secondItem="cur-Fg-VzR" secondAttribute="trailing" id="ifz-lx-I46"/>
+                            <constraint firstItem="IJS-PY-QTY" firstAttribute="leading" secondItem="cur-Fg-VzR" secondAttribute="leading" id="ld3-Qm-8Wy"/>
                             <constraint firstItem="cur-Fg-VzR" firstAttribute="top" secondItem="a9U-dl-5is" secondAttribute="top" id="oAk-yY-EcU"/>
+                            <constraint firstItem="z0s-e4-3lD" firstAttribute="top" secondItem="IJS-PY-QTY" secondAttribute="bottom" id="oiw-RP-pT9"/>
                             <constraint firstItem="nP2-8s-0nd" firstAttribute="top" secondItem="QM9-ju-JDa" secondAttribute="bottom" id="oqT-8q-IEM"/>
                             <constraint firstItem="a9U-dl-5is" firstAttribute="trailing" secondItem="fIw-ZE-Sod" secondAttribute="trailing" id="pyW-tA-TfK"/>
                             <constraint firstItem="QM9-ju-JDa" firstAttribute="height" secondItem="L4Q-WO-Cus" secondAttribute="height" id="qNW-bO-efX"/>
@@ -294,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9jB-8p-5JK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2708" y="34"/>
+            <point key="canvasLocation" x="2708" y="33.733133433283363"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="Jtr-rk-DF7">
@@ -314,16 +332,16 @@
             </objects>
             <point key="canvasLocation" x="194" y="34"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Favourite Table Table View Controller-->
         <scene sceneID="zpa-Rh-j2D">
             <objects>
-                <tableViewController id="ONQ-Rm-jfy" sceneMemberID="viewController">
+                <tableViewController id="ONQ-Rm-jfy" customClass="FavouriteTableTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TUg-ou-D3j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FavouriteCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FavouriteCell" rowHeight="93" id="BMs-Za-ClT" customClass="TVFavouriteCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FavouriteCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favouriteCell" rowHeight="93" id="BMs-Za-ClT" customClass="TVFavouriteCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="93"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BMs-Za-ClT" id="6zd-WE-ZYq">

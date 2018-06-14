@@ -8,6 +8,7 @@
 
 #import "FavouriteTableTableViewController.h"
 #import "TVFavouriteCell.h"
+#import <CoreData/CoreData.h>
 
 @interface FavouriteTableTableViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,6 +18,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -43,7 +47,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TVFavouriteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavouriteCell" forIndexPath:indexPath];
+    TVFavouriteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favouriteCell" forIndexPath:indexPath];
     cell.favouriteFilmName.text = @"label";
     // Configure the cell...
     
