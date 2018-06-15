@@ -12,10 +12,11 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-//@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-//@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
-//@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-//- (NSURL *)applicationDocumentsDirectory;
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+- (NSURL *)applicationDocumentsDirectory;
+- (void)tearDownCoreDataStack;
 @property (strong, nonatomic) UIWindow *window;
 
 @end

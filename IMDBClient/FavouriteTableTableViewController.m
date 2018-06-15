@@ -12,12 +12,17 @@
 
 @interface FavouriteTableTableViewController () <UITableViewDataSource, UITableViewDelegate>
 
+@property (nonatomic, strong) NSMutableArray *arrayForID;
+@property (nonatomic, strong) NSMutableArray *array;
+
 @end
 
 @implementation FavouriteTableTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.arrayForID = [[NSMutableArray alloc] init];
+
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -48,10 +53,28 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TVFavouriteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favouriteCell" forIndexPath:indexPath];
-    cell.favouriteFilmName.text = @"label";
-    // Configure the cell...
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
+    NSFetchRequest *request =[[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    self.array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
+    NSLog(@"For :");
+    for (NSManagedObject *object in self.array) {
+        NSLog(@"Object %@\n",[object valueForKey:@"title"]);
+        [self.arrayForID addObject:[object valueForKey:@"imdbID"]];
+        NSLog(@"Object with ID - %@", self.arrayForID[indexPath.row]);
+    }
+    cell.favouriteFilmName.text = [self.array[indexPath.row] valueForKey:@"title"];
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
+    //[self.navigationController pushViewController:detailsView animated:YES];
+    [self performSegueWithIdentifier:@"takeIdByFavourite" sender:indexPath];
 }
 
 
@@ -89,8 +112,21 @@
 }
 */
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"takeIdByFavourite"]) {
+        NSIndexPath *indexPath = sender; //[self.tableView indexPathsForSelectedRows];
+        DetailsViewController *destViewController = segue.destinationViewController;
+        destViewController.imdbId = self.arrayForID[indexPath.row] ;
+        NSLog(@"segue indexPath %ld",(long)indexPath);
+    }else{
+        NSLog(@"segue not found identifier");
+    }
+}
+
 /*
 #pragma mark - Navigation
+ 
+ 
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

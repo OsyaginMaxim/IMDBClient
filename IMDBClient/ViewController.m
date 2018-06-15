@@ -89,6 +89,7 @@
                     model.imdbID = [self->arrayObjects[i] valueForKey:@"imdbID"];
                     model.imageUrl = [self->arrayObjects[i] valueForKey:@"Poster"];
                     [self.arrayModels addObject:model];
+                    NSLog(@"Flag - %@", model.favoriteFlag);
                 }
                 [self.tableView reloadData];
                 NSLog(@"%lu", (unsigned long)self->arrayObjects.count);

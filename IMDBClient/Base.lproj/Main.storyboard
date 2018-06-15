@@ -389,6 +389,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="yWM-AS-diQ"/>
+                    <connections>
+                        <segue destination="XGB-nR-3Bg" kind="show" identifier="takeIdByFavourite" id="QNR-mm-dqn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eK9-RM-R71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -433,4 +436,7 @@
             <point key="canvasLocation" x="989.60000000000002" y="-330.58470764617692"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="QNR-mm-dqn"/>
+    </inferredMetricsTieBreakers>
 </document>
