@@ -14,6 +14,7 @@
 
 @interface DetailsViewController ()
 @property(nonatomic, strong) filmModel *fModel;
+@property(nonatomic) BOOL alreadySet;
 @end
 
 @implementation DetailsViewController
@@ -38,14 +39,13 @@
 
 - (void) loadData{
     
-    
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
     NSFetchRequest *request =[[NSFetchRequest alloc] init];
     [request setEntity:entity];
     NSMutableArray *array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
     NSLog(@"For :");
-    BOOL *notFavourite = YES;
+    BOOL notFavourite = YES;
     for (NSManagedObject *object in array) {
         NSLog(@"Object %@\n",[object valueForKey:@"title"]);
         if(self.imdbId == [object valueForKey:@"imdbID"]){
@@ -62,6 +62,7 @@
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             self.navigationItem.title = [object valueForKey:@"title"];
             notFavourite = NO;
+            self.alreadySet = YES;
             break;
         }
             
@@ -97,7 +98,8 @@
                     self->fModel.actors = [responseObject valueForKey:@"Actors"];
                     self->fModel.runtime = [responseObject valueForKey:@"Runtime"];
                     self->fModel.discript = [responseObject valueForKey:@"Plot"];
-                    self->fModel.favoriteFlag = @"true";
+                    self.alreadySet = NO;
+                    //self->fModel.favoriteFlag = @"true";
                 
                 }
                 failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -107,31 +109,32 @@
     }
 }
 - (IBAction)save:(id)sender {
-    AppDelegate * appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    //NSManagedObjectContext * context = [self managedObjectContext];
-    NSEntityDescription *entity = [NSEntityDescription insertNewObjectForEntityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
-    //NSManagedObject *record = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
-    //[entity setValue:self->fModel.filmName forKey:@"title"];
-    [entity setValue:self->fModel.filmName forKey:@"title"];
-    [entity setValue:self->fModel.type forKey:@"genre"];
-    [entity setValue:self->fModel.year forKey:@"released"];
-    [entity setValue:self->fModel.imdbID forKey:@"rating"];
-    [entity setValue:self->fModel.imageUrl forKey:@"poster"];
-    [entity setValue:self->fModel.director forKey:@"director"];
-    [entity setValue:self->fModel.actors forKey:@"actors"];
-    [entity setValue:self->fModel.discript forKey:@"discript"];
-    [entity setValue:self->fModel.imdb forKey:@"imdbID"];
-    [entity setValue:self->fModel.favoriteFlag forKey:@"flag"];
-    [entity setValue:self->fModel.runtime forKey:@"runtime"];
+    if(!self.alreadySet){
+        AppDelegate * appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        //NSManagedObjectContext * context = [self managedObjectContext];
+        NSEntityDescription *entity = [NSEntityDescription insertNewObjectForEntityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
+        //NSManagedObject *record = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
+        //[entity setValue:self->fModel.filmName forKey:@"title"];
     
-    //NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:appDelegate.managedObjectContext];
-    //[object setValue:@"saved" forKey:@"title"];
-    
-    NSError *error;
-    BOOL isSaved = [appDelegate.managedObjectContext save:&error]; //[appDelegate.managedObjectContext save:&error];
-    //[appDelegate.managedObjectContext save:&error];
-    NSLog(@"%d - successfully saved", isSaved);
-    
+        [entity setValue:self->fModel.filmName forKey:@"title"];
+        [entity setValue:self->fModel.type forKey:@"genre"];
+        [entity setValue:self->fModel.year forKey:@"released"];
+        [entity setValue:self->fModel.imdbID forKey:@"rating"];
+        [entity setValue:self->fModel.imageUrl forKey:@"poster"];
+        [entity setValue:self->fModel.director forKey:@"director"];
+        [entity setValue:self->fModel.actors forKey:@"actors"];
+        [entity setValue:self->fModel.discript forKey:@"discript"];
+        [entity setValue:self->fModel.imdb forKey:@"imdbID"];
+        [entity setValue:self->fModel.favoriteFlag forKey:@"flag"];
+        [entity setValue:self->fModel.runtime forKey:@"runtime"];
+        [entity setValue:@"true" forKey:@"flag"];
+        NSError *error;
+        BOOL isSaved = [appDelegate.managedObjectContext save:&error];
+        NSLog(@"%d - successfully saved", isSaved);
+        self.alreadySet = YES;
+    }else{
+        NSLog(@"already saved!");
+    }
     
     
 }

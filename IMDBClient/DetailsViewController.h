@@ -9,12 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 
-@interface DetailsViewController : UIViewController
-//<NSFetchedResultsControllerDelegate>
-{
- //   NSFetchedResultsController *fetchedResultsController;
- //   NSManagedObjectContext *managedObjectContext;
-}
+@interface DetailsViewController : UIViewController <NSFetchedResultsControllerDelegate>
+
 
 @property(nonatomic, strong) NSString *imdbId;
 @property (weak, nonatomic) IBOutlet UIImageView *poster;
@@ -26,8 +22,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *runtime;
 @property (weak, nonatomic) IBOutlet UITextView *released;
 @property (weak, nonatomic) IBOutlet UITextView *discript;
-//@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-//@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-//@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
 
 @end

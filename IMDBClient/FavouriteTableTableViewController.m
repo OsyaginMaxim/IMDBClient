@@ -8,6 +8,8 @@
 
 #import "FavouriteTableTableViewController.h"
 #import "TVFavouriteCell.h"
+#import "AFNetworking/AFNetworking.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import <CoreData/CoreData.h>
 
 @interface FavouriteTableTableViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -22,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.arrayForID = [[NSMutableArray alloc] init];
+    self.navigationItem.title = @"Favourite";
 
     
     self.tableView.delegate = self;
@@ -34,6 +37,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [self loadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -41,32 +47,43 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return 1;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 1;
+   // NSLog(@"Count in numberOfRowsInSection - %lu", (unsigned long)self.array.count);
+    return self.array.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TVFavouriteCell *cell = [tableView dequeueReusableCellWithIdentifier:@"favouriteCell" forIndexPath:indexPath];
+    cell.favouriteFilmName.text = [self.array[indexPath.row] valueForKey:@"title"];
+    [cell.imageFavourite sd_setImageWithURL:[NSURL URLWithString:[self.array[indexPath.row] valueForKey:@"poster"]]
+                      placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    return cell;
+}
+
+-(void) loadData{
+    self.arrayForID = [[NSMutableArray alloc] init];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
     NSFetchRequest *request =[[NSFetchRequest alloc] init];
+    request.includesPropertyValues = false;
     [request setEntity:entity];
     self.array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
-    NSLog(@"For :");
-    for (NSManagedObject *object in self.array) {
-        NSLog(@"Object %@\n",[object valueForKey:@"title"]);
-        [self.arrayForID addObject:[object valueForKey:@"imdbID"]];
-        NSLog(@"Object with ID - %@", self.arrayForID[indexPath.row]);
+    NSLog(@"For : %@", self.array);
+    NSLog(@"Count in loadData - %lu", (unsigned long)self.array.count);
+    if(self.array.count){
+        for (NSManagedObject *object in self.array) {
+            NSLog(@"Object %@\n",[object valueForKey:@"title"]);
+            [self.arrayForID addObject:[object valueForKey:@"imdbID"]];
+            NSLog(@"Object with ID - %@", self.arrayForID);
+        }
+        [self.tableView reloadData];
     }
-    cell.favouriteFilmName.text = [self.array[indexPath.row] valueForKey:@"title"];
-    
-    return cell;
+    //[self.tableView reloadData];
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -74,29 +91,44 @@
     
     //DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
     //[self.navigationController pushViewController:detailsView animated:YES];
+    NSLog(@"didSelect Favourite indexPath - %ld", (long)indexPath.row);
     [self performSegueWithIdentifier:@"takeIdByFavourite" sender:indexPath];
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        // Delete object from database
+        [self.tableView beginUpdates];
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate.managedObjectContext deleteObject:[self.array objectAtIndex:indexPath.row]];
+        
+        NSError *error = nil;
+        if (![appDelegate.managedObjectContext save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        
+        // Remove device from table view
+        [self.array removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tableView reloadData];
+        [self.tableView endUpdates];
+    }
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.
@@ -117,7 +149,8 @@
         NSIndexPath *indexPath = sender; //[self.tableView indexPathsForSelectedRows];
         DetailsViewController *destViewController = segue.destinationViewController;
         destViewController.imdbId = self.arrayForID[indexPath.row] ;
-        NSLog(@"segue indexPath %ld",(long)indexPath);
+        NSLog(@"self.arrayForID[indexPath.row] - %@ || indexPath.row - %ld  || self.arrayForID - %@", self.arrayForID[indexPath.row], indexPath.row, self.arrayForID);
+        NSLog(@"segue takeIdByFavourite indexPath %ld, ID - %@",(long)indexPath.row, destViewController.imdbId);
     }else{
         NSLog(@"segue not found identifier");
     }

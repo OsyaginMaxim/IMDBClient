@@ -16,10 +16,12 @@
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *arrayModels;
+//@property (strong,nonatomic) NSMutableArray *delArray;
 
 @end
 
 @implementation ViewController{
+
     NSURL *URL;
     NSMutableArray *arrayObjects;
     //NSMutableArray *arrayModels;
@@ -27,6 +29,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Delete"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(deleteAllFavourites)];
+    
+    self.navigationItem.rightBarButtonItem = sendButton;
     self.arrayModels = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
     UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCloseKeyboard)];
@@ -36,6 +45,26 @@
 
     self.tableView.tableFooterView = [UIView new];
 }
+
+-(void) deleteAllFavourites{
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
+    NSFetchRequest *request =[[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSMutableArray *array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
+    NSLog(@"Delete begin!");
+    for (NSUInteger i = 0; i<array.count; i++) {
+        [appDelegate.managedObjectContext deleteObject:[array objectAtIndex:i]];
+        NSError *error = nil;
+        if (![appDelegate.managedObjectContext save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        NSLog(@"Delete!");
+    }
+    NSLog(@"Delete end!");
+}
+
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     NSLog(@"%@",searchText);
     [self loadData:searchText];
@@ -105,6 +134,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
     //[self.navigationController pushViewController:detailsView animated:YES];
+    NSLog(@"segue takeId indexPath %ld",(long)indexPath.row);
     [self performSegueWithIdentifier:@"takeId" sender:indexPath];
 }
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -117,7 +147,7 @@
         NSIndexPath *indexPath = sender; //[self.tableView indexPathsForSelectedRows];
         DetailsViewController *destViewController = segue.destinationViewController;
         destViewController.imdbId = [self.arrayModels[indexPath.row] valueForKey:@"imdbID"];
-        NSLog(@"segue indexPath %ld",(long)indexPath);
+        NSLog(@"segue takeId indexPath %ld",(long)indexPath.row);
     }else{
         NSLog(@"segue not found identifier");
     }
