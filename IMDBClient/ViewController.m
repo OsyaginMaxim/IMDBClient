@@ -29,13 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Delete"
-                                   style:UIBarButtonItemStylePlain
-                                   target:self
-                                   action:@selector(deleteAllFavourites)];
     
-    self.navigationItem.rightBarButtonItem = sendButton;
     self.arrayModels = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
     UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCloseKeyboard)];
@@ -46,24 +40,7 @@
     self.tableView.tableFooterView = [UIView new];
 }
 
--(void) deleteAllFavourites{
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
-    NSFetchRequest *request =[[NSFetchRequest alloc] init];
-    [request setEntity:entity];
-    NSMutableArray *array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
-    NSLog(@"Delete begin!");
-    for (NSUInteger i = 0; i<array.count; i++) {
-        [appDelegate.managedObjectContext deleteObject:[array objectAtIndex:i]];
-        NSError *error = nil;
-        if (![appDelegate.managedObjectContext save:&error]) {
-            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
-            return;
-        }
-        NSLog(@"Delete!");
-    }
-    NSLog(@"Delete end!");
-}
+
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     NSLog(@"%@",searchText);

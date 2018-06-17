@@ -15,6 +15,7 @@
 @interface DetailsViewController ()
 @property(nonatomic, strong) filmModel *fModel;
 @property(nonatomic) BOOL alreadySet;
+@property(nonatomic) BOOL notFavourite;
 @end
 
 @implementation DetailsViewController
@@ -45,7 +46,7 @@
     [request setEntity:entity];
     NSMutableArray *array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
     NSLog(@"For :");
-    BOOL notFavourite = YES;
+    self.notFavourite = YES;
     for (NSManagedObject *object in array) {
         NSLog(@"Object %@\n",[object valueForKey:@"title"]);
         if(self.imdbId == [object valueForKey:@"imdbID"]){
@@ -61,7 +62,7 @@
             [self.poster sd_setImageWithURL:[NSURL URLWithString:[object valueForKey:@"poster"]]
                            placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
             self.navigationItem.title = [object valueForKey:@"title"];
-            notFavourite = NO;
+            self.notFavourite = NO;
             self.alreadySet = YES;
             break;
         }
@@ -69,7 +70,7 @@
     }
     
     
-    if (notFavourite){
+    if (self.notFavourite){
         AFHTTPSessionManager *manager   = [AFHTTPSessionManager manager];
         [manager    GET:[NSString stringWithFormat:@"http://www.omdbapi.com/?apikey=373557b&i=%@", imdbId]
              parameters:nil
@@ -134,6 +135,33 @@
         self.alreadySet = YES;
     }else{
         NSLog(@"already saved!");
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
+        NSFetchRequest *request =[[NSFetchRequest alloc] init];
+        [request setEntity:entity];
+        NSMutableArray *array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
+        NSUInteger i = 0;
+        for (NSManagedObject *object in array) {
+            NSLog(@"Object %@\n",[object valueForKey:@"title"]);
+            NSLog(@"For : %@", array);
+            NSLog(@"For : %lu", (unsigned long)i);
+            NSLog(@"imdbId in object before if - %@ || imdbId in self.imdbId - %@", [object valueForKey:@"imdbID"], self.imdbId);
+            if(self.imdbId == [object valueForKey:@"imdbID"]){
+                NSLog(@"imdbId in object after if - %@ || imdbId in self.imdbId - %@", [object valueForKey:@"imdbID"], self.imdbId);
+                [appDelegate.managedObjectContext deleteObject:[array objectAtIndex:i]];
+                NSError *error = nil;
+                if (![appDelegate.managedObjectContext save:&error]) {
+                    NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+                    return;
+                }
+                NSLog(@"Delete!");
+                self.notFavourite = YES;
+                self.alreadySet = NO;
+                break;
+            }
+            i++;
+            
+        }
     }
     
     
