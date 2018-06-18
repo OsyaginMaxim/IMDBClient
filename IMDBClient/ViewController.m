@@ -14,9 +14,9 @@
 #import "DetailsViewController.h"
 
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *arrayModels;
-//@property (strong,nonatomic) NSMutableArray *delArray;
 
 @end
 
@@ -24,20 +24,48 @@
 
     NSURL *URL;
     NSMutableArray *arrayObjects;
-    //NSMutableArray *arrayModels;
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.arrayModels = [[NSMutableArray alloc] init];
     self.searchBar.delegate = self;
     UITapGestureRecognizer * handleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCloseKeyboard)];
     [self.view addGestureRecognizer:handleTap];
     handleTap.cancelsTouchesInView = false;
+    UIBarButtonItem *sendButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Delete"
+                                   style:UIBarButtonItemStylePlain
+                                   target:self
+                                   action:@selector(deleteAllFavourites)];
+    self.navigationItem.rightBarButtonItem = sendButton;
     // Do any additional setup after loading the view, typically from a nib.
 
     self.tableView.tableFooterView = [UIView new];
+}
+
+-(void) deleteAllFavourites{
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
+    NSFetchRequest *request =[[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    NSMutableArray *array = [[appDelegate.managedObjectContext executeFetchRequest:request error:nil] mutableCopy];
+    NSLog(@"Delete begin!");
+    for (NSUInteger i = 0; i<array.count; i++) {
+        [appDelegate.managedObjectContext deleteObject:[array objectAtIndex:i]];
+        NSError *error = nil;
+        if (![appDelegate.managedObjectContext save:&error]) {
+            NSLog(@"Can't Delete! %@ %@", error, [error localizedDescription]);
+            return;
+        }
+        NSLog(@"Delete!");
+    }
+    NSLog(@"Delete end!");
+    //[self.array removeAllObjects];
+    //[self.tableView reloadData];
+    NSLog(@"ReloadData!");
+    
 }
 
 
@@ -53,7 +81,6 @@
 }
 
 - (void) handleCloseKeyboard {
-   // [self.view endEditing:YES];
     [self.searchBar resignFirstResponder];
 }
 
@@ -100,7 +127,6 @@
                 [self.tableView reloadData];
                 NSLog(@"%lu", (unsigned long)self->arrayObjects.count);
                 NSLog(@"%@", self.arrayModels);
-                //NSLog(@"Actors:%@", [responseObject valueForKey:@"Actors"]);
             }
             failure:^(NSURLSessionTask *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
@@ -109,8 +135,6 @@
 }
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
-    //[self.navigationController pushViewController:detailsView animated:YES];
     NSLog(@"segue takeId indexPath %ld",(long)indexPath.row);
     [self performSegueWithIdentifier:@"takeId" sender:indexPath];
 }
@@ -121,7 +145,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"takeId"]) {
-        NSIndexPath *indexPath = sender; //[self.tableView indexPathsForSelectedRows];
+        NSIndexPath *indexPath = sender;
         DetailsViewController *destViewController = segue.destinationViewController;
         destViewController.imdbId = [self.arrayModels[indexPath.row] valueForKey:@"imdbID"];
         NSLog(@"segue takeId indexPath %ld",(long)indexPath.row);

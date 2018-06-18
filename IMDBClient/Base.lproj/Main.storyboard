@@ -240,7 +240,7 @@
                             </textView>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJS-PY-QTY">
                                 <rect key="frame" x="0.0" y="223" width="150" height="25"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="264-Z5-RdE"/>
                                     <constraint firstAttribute="height" constant="25" id="OPG-PW-30g"/>
@@ -302,6 +302,7 @@
                         <outlet property="actors" destination="qPR-vz-KtQ" id="zKG-YK-Y6k"/>
                         <outlet property="director" destination="z0s-e4-3lD" id="nAE-Bz-0bq"/>
                         <outlet property="discript" destination="nP2-8s-0nd" id="e3k-QB-5Wc"/>
+                        <outlet property="favorite" destination="IJS-PY-QTY" id="WMe-Bn-Qdn"/>
                         <outlet property="genre" destination="3nd-2I-zGh" id="GbG-2f-jZF"/>
                         <outlet property="name" destination="VR8-MW-xH9" id="RIr-2u-0hZ"/>
                         <outlet property="poster" destination="cur-Fg-VzR" id="zEW-p4-aC9"/>

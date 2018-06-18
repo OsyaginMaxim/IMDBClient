@@ -19,16 +19,23 @@
 @end
 
 @implementation DetailsViewController
-@synthesize imdbId, fModel;
-//@synthesize managedObjectContext;
 
-//@synthesize managedObjectContext = _managedObjectContext;
-//@synthesize fetchedResultsController;
+@synthesize imdbId, fModel;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.genre setUserInteractionEnabled:NO];
+    [self.rating setUserInteractionEnabled:NO];
+    [self.director setUserInteractionEnabled:NO];
+    [self.discript setUserInteractionEnabled:NO];
+    [self.released setUserInteractionEnabled:NO];
+    [self.actors setUserInteractionEnabled:NO];
+    [self.runtime setUserInteractionEnabled:NO];
     [self loadData];
-    //fModel = [[filmModel alloc] init];
     // Do any additional setup after loading the view.
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [self loadData];
 }
 
 
@@ -68,6 +75,8 @@
         }
             
     }
+    self.favorite.backgroundColor = [UIColor yellowColor];
+    [self.favorite setTitle:@"from favorite" forState:UIControlStateNormal];
     
     
     if (self.notFavourite){
@@ -100,23 +109,20 @@
                     self->fModel.runtime = [responseObject valueForKey:@"Runtime"];
                     self->fModel.discript = [responseObject valueForKey:@"Plot"];
                     self.alreadySet = NO;
-                    //self->fModel.favoriteFlag = @"true";
                 
                 }
                 failure:^(NSURLSessionTask *operation, NSError *error) {
                     NSLog(@"Error: %@", error);
                 }
          ];
+        self.favorite.backgroundColor = [UIColor redColor];
+        [self.favorite setTitle:@"in favorite" forState:UIControlStateNormal];
     }
 }
 - (IBAction)save:(id)sender {
     if(!self.alreadySet){
         AppDelegate * appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-        //NSManagedObjectContext * context = [self managedObjectContext];
         NSEntityDescription *entity = [NSEntityDescription insertNewObjectForEntityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
-        //NSManagedObject *record = [[NSManagedObject alloc] initWithEntity:entity insertIntoManagedObjectContext:context];
-        //[entity setValue:self->fModel.filmName forKey:@"title"];
-    
         [entity setValue:self->fModel.filmName forKey:@"title"];
         [entity setValue:self->fModel.type forKey:@"genre"];
         [entity setValue:self->fModel.year forKey:@"released"];
@@ -133,6 +139,8 @@
         BOOL isSaved = [appDelegate.managedObjectContext save:&error];
         NSLog(@"%d - successfully saved", isSaved);
         self.alreadySet = YES;
+        [self.favorite setTitle:@"from favorite" forState:UIControlStateNormal];
+        self.favorite.backgroundColor = [UIColor yellowColor];
     }else{
         NSLog(@"already saved!");
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
@@ -162,6 +170,8 @@
             i++;
             
         }
+        [self.favorite setTitle:@"in favorite" forState:UIControlStateNormal];
+        self.favorite.backgroundColor = [UIColor redColor];
     }
     
     

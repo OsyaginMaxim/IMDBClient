@@ -12,6 +12,7 @@
 @interface DetailsViewController : UIViewController <NSFetchedResultsControllerDelegate>
 
 
+@property (weak, nonatomic) IBOutlet UIButton *favorite;
 @property(nonatomic, strong) NSString *imdbId;
 @property (weak, nonatomic) IBOutlet UIImageView *poster;
 @property (weak, nonatomic) IBOutlet UILabel *name;

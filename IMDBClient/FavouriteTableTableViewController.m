@@ -36,6 +36,8 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+     [self loadData];
+    self.tableView.tableFooterView = [UIView new];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,6 +47,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
     [self loadData];
 }
 - (void)didReceiveMemoryWarning {
@@ -73,6 +76,7 @@
 }
 
 -(void) loadData{
+    //[self.tableView reloadData];
     self.arrayForID = [[NSMutableArray alloc] init];
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"EntityN" inManagedObjectContext:appDelegate.managedObjectContext];
@@ -88,9 +92,9 @@
             [self.arrayForID addObject:[object valueForKey:@"imdbID"]];
             NSLog(@"Object with ID - %@", self.arrayForID);
         }
-        [self.tableView reloadData];
+        //[self.tableView reloadData];
     }
-    //[self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 -(void) deleteAllFavourites{
@@ -110,13 +114,14 @@
         NSLog(@"Delete!");
     }
     NSLog(@"Delete end!");
+    [self.array removeAllObjects];
+    [self.tableView reloadData];
+    NSLog(@"ReloadData!");
+    
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    //DetailsViewController * detailsView = [self.storyboard instantiateViewControllerWithIdentifier:@"detailsView"];
-    //[self.navigationController pushViewController:detailsView animated:YES];
     NSLog(@"didSelect Favourite indexPath - %ld", (long)indexPath.row);
     [self performSegueWithIdentifier:@"takeIdByFavourite" sender:indexPath];
 }
